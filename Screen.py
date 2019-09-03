@@ -10,6 +10,7 @@ white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
 red = (255, 0, 0)
+gold = (255, 215, 0)
 
 
 class GraphicState(ABC):
@@ -46,7 +47,7 @@ class FinalScreen(GraphicState):
 
         self.font = pygame.font.Font("Risorse/AlexandriaFLF.ttf", 32)
 
-        self.text = self.font.render('Congratulazioni! Hai vinto!', True, green, blue)
+        self.text = self.font.render('Congratulazioni! Hai vinto!', True, gold)
 
         self.textRect = self.text.get_rect()
 
