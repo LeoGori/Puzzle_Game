@@ -82,7 +82,7 @@ class Menu(GraphicState):
 
         super().__init__()
 
-        self.image = pygame.image.load("Risorse/mondrian2.jpg")
+        self.image = pygame.image.load("Risorse/mondrian.jpg")
         font = pygame.font.Font("Risorse/AlexandriaFLF.ttf", 32)
         self.text = font.render('Premere invio per iniziare', True, green, blue)
 
