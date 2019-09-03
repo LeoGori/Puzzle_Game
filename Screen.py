@@ -39,10 +39,11 @@ class GraphicState(ABC):
 
 class FinalScreen(GraphicState):
 
-    def __init__(self):
+    def __init__(self, image):
 
         super().__init__()
-        # self.image = pygame.image.load("img/elephant.jpg")
+        self.image = pygame.transform.scale(image, (1000, 600))
+
         self.font = pygame.font.Font("Risorse/AlexandriaFLF.ttf", 32)
 
         self.text = self.font.render('Congratulazioni! Hai vinto!', True, green, blue)
@@ -50,10 +51,11 @@ class FinalScreen(GraphicState):
         self.textRect = self.text.get_rect()
 
         # set the center of the rectangular object.
-        self.textRect.center = (1000 // 2, 600 // 2)
+        self.textRect.center = (1000 // 2,  575)
 
     def draw(self):
-        # display.blit(self.image, (0, 0))
+
+        self.display.blit(self.image, (0, 0))
         self.display.blit(self.text, self.textRect)
 
         pygame.display.flip()
@@ -130,7 +132,7 @@ class Game(GraphicState):
         self.sprite = pygame.transform.scale(self.image, (200, 150))
 
         font = pygame.font.Font("Risorse/AlexandriaFLF.ttf", 32)
-        self.text = font.render('Ops! Posizione sbagliata!', True, red, blue)
+        self.text = font.render('Ops! Posizione sbagliata!', True, red)
 
         self.textRect = self.text.get_rect()
 
@@ -213,4 +215,4 @@ class Game(GraphicState):
         pygame.display.update()
 
     def get_next_state(self):
-        return FinalScreen()
+        return FinalScreen(self.image)
